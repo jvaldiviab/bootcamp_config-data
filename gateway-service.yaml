@@ -1,0 +1,35 @@
+server:
+  port: 7999
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes: 
+        - id: client-service
+          uri: lb://client-service
+          predicates:
+            - Path=/api/client/**
+        - id: account-service
+          uri: lb://account-service
+          predicates:
+            - Path=/api/account/**
+        - id: credit-service
+          uri: lb://credit-service
+          predicates:
+            - Path=/api/credit/**
+        - id: credit-card-service
+          uri: lb://credit-card-service
+          predicates:
+            - Path=/api/creditCard/**
+        - id: debit-card-service
+          uri: lb://debit-card-service
+          predicates:
+            - Path=/api/debitCard/**

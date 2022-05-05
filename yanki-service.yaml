@@ -1,0 +1,71 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+    instance:
+      instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      authentication-database: admin
+      username: root
+      password: example
+      database: MongoProjectOne
+
+constants:  
+  port: 7999
+  status:
+    blocked: Blocked
+    active: Active
+  account:
+    savings:
+      description: Savings
+      type:
+        normal: Normal
+        vip: Vip
+    current: 
+      description: Current
+      type:
+        normal: Normal
+        pyme: Pyme    
+    long-term:
+      description: Long term
+      type:
+        normal: Normal
+  client:
+    personal:
+      description: Personal
+      type:
+        normal: Normal
+        vip: Vip
+    enterprise:
+      description: Enterprise
+      type:
+        normal: Normal
+        pyme: Pyme
+  services:
+    prefix: http://
+    url:
+      gateway: localhost:7999
+      client: localhost:8001
+      passive: localhost:8002
+      active: localhost:8003
+    path:
+      client: /api/client
+      passive: /api/passive
+      active: /api/active
+  transaction:
+    type:
+      deposit: Deposit
+      withdrawal: Withdrawal
+      transfer-in: Transfer In
+      transfer-out: Transfer Out
+    free:
+      any-account: 17
+      long-term-day: 10
