@@ -48,5 +48,5 @@ constants:
       active: localhost:8003
     path:
       client: /api/client
-      passive: /api/passive
-      active: /api/active
+      passive: /api/account
+      active: /api/credit
