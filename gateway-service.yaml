@@ -33,3 +33,7 @@ spring:
           uri: lb://debit-card-service
           predicates:
             - Path=/api/debitCard/**
+        - id: yanki
+          uri: lb://yanki
+          predicates:
+            - Path=/api/yanki/**
